@@ -4,7 +4,7 @@ const db = new Sequelize("postgres://localhost:5432/wikistack", {logging: false}
 function generateSlug (title) {
   // Removes all non-alphanumeric characters from title
   // And make whitespace underscore
-  return title.replace(/\s+/g, '_').replace(/\W/g, '');
+  return title.toLowerCase().replace(/\s+/g, '_').replace(/\W/g, '');
 }
 
 const Page = db.define("page", {
